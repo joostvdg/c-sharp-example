@@ -1,15 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApplication1
+namespace HelloWorld
 {
-    class Program
+    class Hello
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            Console.WriteLine("Hello World!");
+            Console.WriteLine("Some number" + getSomeInt().ToString() );
+
+            // Keep console window open in debug mode.
+            Console.WriteLine("Press any key to exit.");
+            Console.ReadKey();
+        }
+
+        static int getSomeInt()
+        {
+            return 42;
         }
     }
 }
