@@ -3,6 +3,20 @@
 # Jenkins
 First, see the [Jenkinsfile](Jenkinsfile) for the pipeline definition.
 
+**ToDO**
+```
+stage('Build'){
+    def msbuildHome = tool name: 'default', type: 'hudson.plugins.msbuild.MsBuildInstallation'
+    echo "msbuildHome=${msbuildHome}"
+    bat "\"${msbuildHome}\\msbuild\" /t:Rebuild /p:Configuration=Release /p:Platform=x64"
+}
+```
+* **/p:Configuration=Release** -> release build [Debug]
+* **/p:Platform=x64** -> cpu platform [AnyCPU, x86]
+
+* bat "\"${env.nuget}\" pack Package.nuspec" has to be preceded by a ${env.nuget} restore
+
+
 **Example**
 ```java
 node ('windows') {
